@@ -1,8 +1,8 @@
 package router
 
 import (
-	"fmt"
 	"gooop/event"
+	"log"
 )
 
 type DomainEventRoute struct {
@@ -10,5 +10,5 @@ type DomainEventRoute struct {
 }
 
 func (er *DomainEventRoute) Route() {
-	fmt.Printf("Routed Domain Event: %s [%T]\n", er.event.GetName(), er.event)
+	log.Printf("Routed Domain Event: %s [%T]\n", er.event.GetName(), er.event)
 }

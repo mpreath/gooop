@@ -1,8 +1,8 @@
 package router
 
 import (
-	"fmt"
 	"gooop/event"
+	"log"
 )
 
 type GenericEventRoute struct {
@@ -10,5 +10,5 @@ type GenericEventRoute struct {
 }
 
 func (er *GenericEventRoute) Route() {
-	fmt.Printf("Routed Generic Event: %s [%T]\n", er.event.GetName(), er.event)
+	log.Printf("Routed Generic Event: %s [%T]\n", er.event.GetName(), er.event)
 }

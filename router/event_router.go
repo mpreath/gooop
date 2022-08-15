@@ -1,17 +1,31 @@
 package router
 
 import (
-	"fmt"
 	"gooop/event"
+	"log"
+	"sync"
 )
 
-func RouteEvent(e event.Event) {
-	fmt.Printf("Routing Event: %s [%T]\n", e.GetName(), e)
-
-	GetRoute(e).Route()
+type EventRouter struct {
+	wg sync.WaitGroup
 }
 
-func GetRoute(e event.Event) Route {
+func NewEventRouter() EventRouter {
+	return EventRouter{}
+}
+
+func (er *EventRouter) RouteEvent(e event.Event) {
+	log.Printf("Routing Event: %s [%T]\n", e.GetName(), e)
+
+	r := er.getRoute(e)
+	er.wg.Add(1)
+	go func() {
+		defer er.wg.Done()
+		r.Route()
+	}()
+}
+
+func (er *EventRouter) getRoute(e event.Event) Route {
 
 	// Get route based on event type
 	switch v := e.(type) {
@@ -20,4 +34,8 @@ func GetRoute(e event.Event) Route {
 	default:
 		return &GenericEventRoute{event: v}
 	}
+}
+
+func (er *EventRouter) Wait() {
+	er.wg.Wait()
 }
