@@ -2,8 +2,8 @@ package event
 
 func GenerateEvent(eventName string, eventType string) EventInterface {
 	if eventType == "domain" {
-		return &DomainEvent{Event: Event{name: eventName}}
+		return NewDomainEvent(eventName)
 	} else {
-		return &Event{name: eventName}
+		return NewEvent(eventName)
 	}
 }
