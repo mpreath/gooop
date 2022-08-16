@@ -14,7 +14,7 @@ func NewEventRouter() EventRouter {
 	return EventRouter{}
 }
 
-func (er *EventRouter) RouteEvent(e event.Event) {
+func (er *EventRouter) RouteEvent(e event.EventInterface) {
 	log.Printf("Routing Event: %s [%T]\n", e.GetName(), e)
 
 	r := er.getRoute(e)
@@ -25,7 +25,7 @@ func (er *EventRouter) RouteEvent(e event.Event) {
 	}()
 }
 
-func (er *EventRouter) getRoute(e event.Event) Route {
+func (er *EventRouter) getRoute(e event.EventInterface) Route {
 
 	// Get route based on event type
 	switch v := e.(type) {

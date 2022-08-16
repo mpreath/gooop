@@ -6,7 +6,7 @@ import (
 )
 
 type GenericEventRoute struct {
-	event event.Event
+	event event.EventInterface
 }
 
 func (er *GenericEventRoute) Route() {

@@ -6,7 +6,7 @@ import (
 )
 
 type DomainEventRoute struct {
-	event event.Event
+	event event.EventInterface
 }
 
 func (er *DomainEventRoute) Route() {
