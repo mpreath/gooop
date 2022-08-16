@@ -1,12 +1,11 @@
 package router
 
 import (
-	"gooop/event"
 	"log"
 )
 
 type DomainEventRoute struct {
-	event event.EventInterface
+	EventRoute
 }
 
 func (er *DomainEventRoute) Route() {
