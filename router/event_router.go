@@ -32,7 +32,7 @@ func (er *EventRouter) getRoute(e event.EventInterface) EventRouteInterface {
 	case "domain":
 		return &DomainEventRoute{EventRoute: EventRoute{event: e}}
 	default:
-		return &GenericEventRoute{EventRoute: EventRoute{event: e}}
+		return &EventRoute{event: e}
 	}
 }
 
