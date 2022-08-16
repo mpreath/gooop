@@ -28,11 +28,11 @@ func (er *EventRouter) RouteEvent(e event.EventInterface) {
 func (er *EventRouter) getRoute(e event.EventInterface) EventRouteInterface {
 
 	// Get route based on event type
-	switch v := e.(type) {
-	case *event.DomainEvent:
-		return &DomainEventRoute{EventRoute: EventRoute{event: v}}
+	switch e.GetType() {
+	case "domain":
+		return &DomainEventRoute{EventRoute: EventRoute{event: e}}
 	default:
-		return &GenericEventRoute{EventRoute: EventRoute{event: v}}
+		return &GenericEventRoute{EventRoute: EventRoute{event: e}}
 	}
 }
 

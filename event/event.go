@@ -2,6 +2,7 @@ package event
 
 type EventInterface interface {
 	GetName() string
+	GetType() string
 }
 
 type Event struct {
@@ -10,4 +11,8 @@ type Event struct {
 
 func (e *Event) GetName() string {
 	return e.name
+}
+
+func (e *Event) GetType() string {
+	return "generic"
 }
