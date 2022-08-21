@@ -11,6 +11,17 @@ type Handler interface {
 	SetNext(Handler)
 }
 
+func New(handler_type string) (Handler, error) {
+	switch handler_type {
+	case "domain":
+		return &DomainHandler{BaseHandler: BaseHandler{next: nil}}, nil
+	case "log":
+		return &LogHandler{BaseHandler: BaseHandler{next: nil}}, nil
+	default:
+		return nil, fmt.Errorf("unknown handler type \"%s\"", handler_type)
+	}
+}
+
 type BaseHandler struct {
 	next Handler
 }
@@ -26,17 +37,4 @@ func (h *BaseHandler) Execute(e event.EventInterface) {
 
 func (h *BaseHandler) SetNext(next Handler) {
 	h.next = next
-}
-
-func New(handler_type string) (Handler, error) {
-	switch handler_type {
-	case "domain":
-		return &DomainHandler{BaseHandler: BaseHandler{next: nil}}, nil
-	case "generic":
-		return &GenericHandler{BaseHandler: BaseHandler{next: nil}}, nil
-	case "log":
-		return &LogHandler{BaseHandler: BaseHandler{next: nil}}, nil
-	default:
-		return nil, fmt.Errorf("unknown handler type \"%s\"", handler_type)
-	}
 }
