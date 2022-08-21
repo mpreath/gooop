@@ -16,5 +16,7 @@ func (h *DomainHandler) Execute(e event.EventInterface) {
 	} else {
 		log.Printf("Event Already Was Handled: %s [%T]\n", e.GetName(), e)
 	}
-	h.next.Execute(e)
+	if h.next != nil {
+		h.next.Execute(e)
+	}
 }

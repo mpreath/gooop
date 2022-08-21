@@ -40,11 +40,6 @@ func main() {
 		fmt.Printf("%s: %v", err_string, err)
 		os.Exit(1)
 	}
-	generic_handler, err := handler.New("generic")
-	if err != nil {
-		fmt.Printf("%s: %v", err_string, err)
-		os.Exit(1)
-	}
 	log_handler, err := handler.New("log")
 	if err != nil {
 		fmt.Printf("%s: %v", err_string, err)
@@ -65,7 +60,6 @@ func main() {
 	// }
 
 	domain_handler.SetNext(log_handler)
-	log_handler.SetNext(generic_handler)
 	domain_handler.Execute(e)
 
 }

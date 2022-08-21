@@ -11,5 +11,7 @@ type LogHandler struct {
 
 func (h *LogHandler) Execute(e event.EventInterface) {
 	log.Printf("Logged Event: %s [%T]\n", e.GetName(), e)
-	h.next.Execute(e)
+	if h.next != nil {
+		h.next.Execute(e)
+	}
 }
