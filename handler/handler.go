@@ -1,7 +1,6 @@
 package handler
 
 import (
-	"fmt"
 	"gooop/event"
 	"log"
 )
@@ -9,17 +8,6 @@ import (
 type Handler interface {
 	Execute(event.EventInterface)
 	SetNext(Handler)
-}
-
-func New(handler_type string) (Handler, error) {
-	switch handler_type {
-	case "domain":
-		return &DomainHandler{BaseHandler: BaseHandler{next: nil}}, nil
-	case "log":
-		return &LogHandler{BaseHandler: BaseHandler{next: nil}}, nil
-	default:
-		return nil, fmt.Errorf("unknown handler type \"%s\"", handler_type)
-	}
 }
 
 type BaseHandler struct {

@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	handler "gooop/chain"
 	"gooop/event"
+	"gooop/handler"
 	"os"
 )
 
