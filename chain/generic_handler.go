@@ -1,4 +1,4 @@
-package chain
+package handler
 
 type GenericHandler struct {
 	BaseHandler

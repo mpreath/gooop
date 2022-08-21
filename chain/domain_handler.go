@@ -1,4 +1,4 @@
-package chain
+package handler
 
 import (
 	"gooop/event"

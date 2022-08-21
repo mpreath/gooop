@@ -1,8 +1,10 @@
 package main
 
 import (
-	"gooop/chain"
+	"fmt"
+	handler "gooop/chain"
 	"gooop/event"
+	"os"
 )
 
 func main() {
@@ -31,16 +33,39 @@ func main() {
 
 	// Event handling through chain of command
 
-	domain_handler := chain.DomainHandler{}
-	generic_handler := chain.GenericHandler{}
-	log_handler := chain.LogHandler{}
+	err_string := "creating a new handler"
 
-	event_type := "domain"
-	event_name := "user:updated"
-	e := event.GenerateEvent(event_name, event_type)
+	domain_handler, err := handler.New("domain")
+	if err != nil {
+		fmt.Printf("%s: %v", err_string, err)
+		os.Exit(1)
+	}
+	generic_handler, err := handler.New("generic")
+	if err != nil {
+		fmt.Printf("%s: %v", err_string, err)
+		os.Exit(1)
+	}
+	log_handler, err := handler.New("log")
+	if err != nil {
+		fmt.Printf("%s: %v", err_string, err)
+		os.Exit(1)
+	}
 
-	domain_handler.SetNext(&log_handler)
-	log_handler.SetNext(&generic_handler)
+	err_string = "creating a new event"
+
+	e, err := event.New("user:updated", "domain")
+	if err != nil {
+		fmt.Printf("%s: %v", err_string, err)
+		os.Exit(1)
+	}
+	// _, err = event.New("invalid:event", "invalid")
+	// if err != nil {
+	// 	fmt.Printf("%s: %v", err_string, err)
+	// 	os.Exit(1)
+	// }
+
+	domain_handler.SetNext(log_handler)
+	log_handler.SetNext(generic_handler)
 	domain_handler.Execute(e)
 
 }
