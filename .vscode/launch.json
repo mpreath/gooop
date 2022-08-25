@@ -3,5 +3,30 @@
     // Hover to view descriptions of existing attributes.
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
-    "configurations": []
+    "configurations": [
+        {
+            "name": "Workflow",
+            "type": "go",
+            "request": "launch",
+            "mode": "debug",
+            "program": "main.go",
+            "args": ["workflow"]
+        },
+        {
+            "name": "Handlers",
+            "type": "go",
+            "request": "launch",
+            "mode": "debug",
+            "program": "main.go",
+            "args": ["handlers"]
+        },
+        {
+            "name": "Factory",
+            "type": "go",
+            "request": "launch",
+            "mode": "debug",
+            "program": "main.go",
+            "args": ["factory"]
+        },
+    ]
 }
