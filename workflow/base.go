@@ -1,6 +1,9 @@
 package workflow
 
-import "log"
+import (
+	"encoding/json"
+	"log"
+)
 
 type BaseProcess struct {
 	next Process
@@ -14,9 +17,9 @@ func (p *BaseProcess) GetNext() Process {
 	return p.next
 }
 
-func (p *BaseProcess) Execute(person *Person) {
-	log.Printf("############# Base processing #############")
-	if person.Zip != "" {
-		log.Printf("Zip code: %s", person.Zip)
-	}
+func (p *BaseProcess) Run(person *Person) {
+	log.Println("########## Base processing ##########")
+	personJson, _ := json.MarshalIndent(person, "", "  ")
+	log.Println(string(personJson))
+	log.Println("#####################################")
 }

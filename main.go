@@ -18,12 +18,25 @@ func main() {
 	wf.Add(&p1)
 	wf.Add(&p2)
 
-	person := workflow.Person{
+	person1 := workflow.Person{
 		Name:    "Matt Reath",
-		Age:     18,
+		Age:     42,
 		Address: "N1594 Forest Dr.",
+		City:    "Norway",
+		State:   "MI",
+		Zip:     "49870",
 	}
-	wf.Run(&person)
+	wf.Run(&person1)
+
+	person2 := workflow.Person{
+		Name:    "Test User",
+		Age:     18,
+		Address: "",
+		City:    "Norway",
+		State:   "MI",
+		Zip:     "49870",
+	}
+	wf.Run(&person2)
 
 	// Example of using an EventFactory to create a domain event
 	// and a generic event. Then routing each event accordingly.

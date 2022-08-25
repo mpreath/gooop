@@ -1,11 +1,13 @@
 package workflow
 
+import "log"
+
 type Workflow struct {
 	process Process
 }
 
 type Process interface {
-	Execute(*Person)
+	Run(*Person)
 	SetNext(Process)
 	GetNext() Process
 }
@@ -31,6 +33,10 @@ func (w *Workflow) Add(process Process) {
 
 func (w *Workflow) Run(person *Person) {
 	for i := w.process; i != nil; i = i.GetNext() {
-		i.Execute(person)
+		if !person.Handled {
+			i.Run(person)
+		} else {
+			log.Println("****** Already handled *******")
+		}
 	}
 }
