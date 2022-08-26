@@ -24,4 +24,15 @@ type Gear struct {
 }
 
 // in Go we can also compose objects using
-// embedded values
+// embedded values which act a bit like inheritence
+type MountainBike struct {
+	Bike // we just specify the struct type and no variable name
+	// the variables and methods of Bike will be available as variables
+	// and methods on MountainBike
+}
+
+// we can override the inherited GearRatio() method
+// and calculate the value differently
+func (m *MountainBike) GearRatio() float64 {
+	return float64(m.Chainring.Teeth) / float64(m.Cog.Teeth)
+}

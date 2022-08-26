@@ -18,24 +18,34 @@ var composeCmd = &cobra.Command{
 	Long:  `Demonstrates composing complex objects in Go`,
 	Run: func(cmd *cobra.Command, args []string) {
 
-		// create a wheel object
-		wheel := composition.Wheel{Size: 26}
-
-		// create the set of gears
-		chainring := composition.Gear{Teeth: 32}
-		cog := composition.Gear{Teeth: 11}
-
 		// create the Bike object
 		// inject the dependencies
 		bike := composition.Bike{
-			FrontWheel: wheel,
-			RearWheel:  wheel,
-			Chainring:  chainring,
-			Cog:        cog,
+			FrontWheel: composition.Wheel{Size: 26},
+			RearWheel:  composition.Wheel{Size: 26},
+			Chainring:  composition.Gear{Teeth: 32},
+			Cog:        composition.Gear{Teeth: 11},
 		}
 
+		log.Printf("[%T] Gear ratio: %f", bike, bike.GearRatio())
+
 		js, _ := json.MarshalIndent(bike, "", "  ")
-		log.Print(js)
+		log.Print(string(js))
+
+		// create a mountainbike object
+		mountainBike := composition.MountainBike{
+			Bike: composition.Bike{
+				FrontWheel: composition.Wheel{Size: 29},
+				RearWheel:  composition.Wheel{Size: 29},
+				Chainring:  composition.Gear{Teeth: 38},
+				Cog:        composition.Gear{Teeth: 24},
+			},
+		}
+
+		log.Printf("[%T] Gear ratio: %f", mountainBike, mountainBike.GearRatio())
+
+		js, _ = json.MarshalIndent(mountainBike, "", "  ")
+		log.Print(string(js))
 
 	},
 }
