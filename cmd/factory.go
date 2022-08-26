@@ -14,7 +14,7 @@ func init() {
 var factoryCmd = &cobra.Command{
 	Use:   "factory",
 	Short: "Demonstrates using interfaces and factories in Go",
-	Long:  `Demonstrates using interfaces and factories Go`,
+	Long:  `Demonstrates using interfaces and factories in Go`,
 	Run: func(cmd *cobra.Command, args []string) {
 
 		// create a road bike first
