@@ -30,7 +30,9 @@ var interfaceCmd = &cobra.Command{
 		roadBike.SetRearWheel(&interfaces.RoadWheel{})
 		roadBike.GetRearWheel().SetSize(26)
 
-		log.Printf("[%T] Front Wheel [%T]: %d, Rear Wheel [%T]: %d", roadBike, roadBike.GetFrontWheel(), roadBike.GetFrontWheel().GetSize(), roadBike.GetRearWheel(), roadBike.GetRearWheel().GetSize())
+		log.Printf("[%T] Front Wheel [%T]: %d, Rear Wheel [%T]: %d",
+			roadBike, roadBike.GetFrontWheel(), roadBike.GetFrontWheel().GetSize(),
+			roadBike.GetRearWheel(), roadBike.GetRearWheel().GetSize())
 
 		mountainBike := interfaces.MountainBike{
 			BaseBike: interfaces.BaseBike{},
@@ -41,7 +43,9 @@ var interfaceCmd = &cobra.Command{
 		mountainBike.SetRearWheel(&interfaces.OffroadWheel{})
 		mountainBike.GetRearWheel().SetSize(29)
 
-		log.Printf("[%T] Front Wheel [%T]: %d, Rear Wheel [%T]: %d", mountainBike, mountainBike.GetFrontWheel(), mountainBike.GetFrontWheel().GetSize(), mountainBike.GetRearWheel(), mountainBike.GetRearWheel().GetSize())
+		log.Printf("[%T] Front Wheel [%T]: %d, Rear Wheel [%T]: %d",
+			mountainBike, mountainBike.GetFrontWheel(), mountainBike.GetFrontWheel().GetSize(),
+			mountainBike.GetRearWheel(), mountainBike.GetRearWheel().GetSize())
 
 	},
 }
