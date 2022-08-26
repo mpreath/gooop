@@ -10,7 +10,7 @@
             "request": "launch",
             "mode": "debug",
             "program": "main.go",
-            "args": ["workflow"]
+            "args": ["object"]
         },
         {
             "name": "Handlers",
@@ -18,15 +18,7 @@
             "request": "launch",
             "mode": "debug",
             "program": "main.go",
-            "args": ["handlers"]
-        },
-        {
-            "name": "Factory",
-            "type": "go",
-            "request": "launch",
-            "mode": "debug",
-            "program": "main.go",
-            "args": ["factory"]
+            "args": ["compose"]
         },
     ]
 }
