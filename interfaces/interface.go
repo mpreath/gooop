@@ -4,7 +4,7 @@ package interfaces
 // in order to have maximum flexibility when
 // composing objects we should use interfaces
 
-// interfaces define the methods available on an
+// interfaces define the methods expected on an
 // object
 type Bike interface {
 	SetFrontWheel(Wheel)
