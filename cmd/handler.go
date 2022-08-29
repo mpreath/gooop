@@ -16,6 +16,8 @@ var handlerCmd = &cobra.Command{
 	Long:  `Demonstrates using event handlers in Go`,
 	Run: func(cmd *cobra.Command, args []string) {
 
+		eventQueue := make([]handler.Event, 3)
+
 		userEvent := handler.UserEvent{
 			BaseEvent: handler.BaseEvent{
 				Name: "userUpdated",
@@ -26,7 +28,7 @@ var handlerCmd = &cobra.Command{
 				},
 			}}
 
-		handler.HandleEvent(&userEvent)
+		eventQueue[0] = &userEvent
 
 		propertyEvent := handler.PropertyEvent{
 			BaseEvent: handler.BaseEvent{
@@ -38,7 +40,7 @@ var handlerCmd = &cobra.Command{
 				},
 			}}
 
-		handler.HandleEvent(&propertyEvent)
+		eventQueue[1] = &propertyEvent
 
 		otherEvent := handler.OtherEvent{
 			BaseEvent: handler.BaseEvent{
@@ -50,7 +52,11 @@ var handlerCmd = &cobra.Command{
 				},
 			}}
 
-		handler.HandleEvent(&otherEvent)
+		eventQueue[2] = &otherEvent
+
+		for _, event := range eventQueue {
+			handler.HandleEvent(event)
+		}
 
 	},
 }
