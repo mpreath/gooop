@@ -16,44 +16,42 @@ var handlerCmd = &cobra.Command{
 	Long:  `Demonstrates using event handlers in Go`,
 	Run: func(cmd *cobra.Command, args []string) {
 
-		eventQueue := make([]handler.Event, 3)
+		// empty queue of events
+		var eventQueue []handler.Event
 
-		userEvent := handler.UserEvent{
-			BaseEvent: handler.BaseEvent{
-				Name: "userUpdated",
-				Attributes: map[string]string{
-					"object":   "user",
-					"objectId": "1",
-					"action":   "updated",
-				},
-			}}
+		// create a user event
+		userEvent := handler.UserEvent{}
+		userEvent.SetName("userCreated")
+		userEvent.SetAttributes(map[string]string{
+			"object":   "user",
+			"objectId": "1",
+			"action":   "created",
+		})
 
-		eventQueue[0] = &userEvent
+		// add the event to the queue
+		eventQueue = append(eventQueue, &userEvent)
 
-		propertyEvent := handler.PropertyEvent{
-			BaseEvent: handler.BaseEvent{
-				Name: "propertyCreated",
-				Attributes: map[string]string{
-					"object":   "property",
-					"objectId": "1",
-					"action":   "created",
-				},
-			}}
+		propertyEvent := handler.PropertyEvent{}
+		propertyEvent.SetName("propertyCreated")
+		propertyEvent.SetAttributes(map[string]string{
+			"object":   "property",
+			"objectId": "1",
+			"action":   "created",
+		})
 
-		eventQueue[1] = &propertyEvent
+		eventQueue = append(eventQueue, &propertyEvent)
 
-		otherEvent := handler.OtherEvent{
-			BaseEvent: handler.BaseEvent{
-				Name: "sessionDeleted",
-				Attributes: map[string]string{
-					"object":   "session",
-					"objectId": "1",
-					"action":   "deleted",
-				},
-			}}
+		otherEvent := handler.OtherEvent{}
+		otherEvent.SetName("sessionDeleted")
+		otherEvent.SetAttributes(map[string]string{
+			"object":   "session",
+			"objectId": "1",
+			"action":   "deleted",
+		})
 
-		eventQueue[2] = &otherEvent
+		eventQueue = append(eventQueue, &otherEvent)
 
+		// loop through the event queue and pass each event to the queue
 		for _, event := range eventQueue {
 			handler.HandleEvent(event)
 		}

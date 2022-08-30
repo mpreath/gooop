@@ -3,7 +3,7 @@ package handler
 import "log"
 
 type EventHandler interface {
-	Handle()
+	Handle() error
 }
 
 func HandleEvent(event Event) {
@@ -19,5 +19,8 @@ func HandleEvent(event Event) {
 		return
 	}
 
-	handler.Handle()
+	err := handler.Handle()
+	if err != nil {
+		log.Println(err.Error())
+	}
 }
