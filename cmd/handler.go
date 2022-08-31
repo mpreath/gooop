@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"gooop/handler"
+	"log"
 
 	"github.com/spf13/cobra"
 )
@@ -24,6 +25,12 @@ var handlerCmd = &cobra.Command{
 			"action":   "created",
 		}))
 
+		eventQueue = append(eventQueue, handler.NewEvent("userUpdated", map[string]string{
+			"object":   "user",
+			"objectId": "1",
+			"action":   "updatd",
+		}))
+
 		eventQueue = append(eventQueue, handler.NewEvent("propertyCreated", map[string]string{
 			"object":   "property",
 			"objectId": "1",
@@ -37,7 +44,10 @@ var handlerCmd = &cobra.Command{
 		}))
 
 		for _, event := range eventQueue {
-			handler.HandleEvent(event)
+			err := handler.HandleEvent(event)
+			if err != nil {
+				log.Printf("Error: handler: %s", err.Error())
+			}
 		}
 
 	},

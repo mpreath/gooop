@@ -15,7 +15,7 @@ func (h *UserEventHandler) Handle() error {
 	log.Printf("handling user event: %T", h.event)
 
 	if !validateAction(h.event.GetAttributes()["action"]) {
-		return fmt.Errorf("invalid action in event")
+		return fmt.Errorf("UserEventHandler.Handle(): event action [%s] is invalid", h.event.GetAttributes()["action"])
 	}
 
 	log.Println("user event handled")

@@ -1,12 +1,15 @@
 package handler
 
-import "log"
+import (
+	"fmt"
+	"log"
+)
 
 type EventHandler interface {
 	Handle() error
 }
 
-func HandleEvent(event Event) {
+func HandleEvent(event Event) error {
 	var handler EventHandler
 
 	switch event.(type) {
@@ -16,11 +19,12 @@ func HandleEvent(event Event) {
 		handler = &PropertyEventHandler{event: event}
 	default:
 		log.Printf("no handler for: %T", event)
-		return
+		return nil
 	}
 
 	err := handler.Handle()
 	if err != nil {
-		log.Println(err.Error())
+		return fmt.Errorf("HandleEvent(): %v", err)
 	}
+	return nil
 }
