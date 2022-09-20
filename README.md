@@ -1,34 +1,12 @@
-gooop = Go OOP (object oriented programming)
+The `gooop` project is a learning project created to build knowledge and competency in object-oriented programming (OOP) using the Go programming language. It follows the chapters and progression of the book "Practical Object Oriented Design" in Ruby (POODR) written by Sandi Metz.  I feel this book is one of the gold standards in object oriented design and programming. 
 
-# Object
+My interest in working through these concepts was motivated by listening to Ronna Steinberg, as a guest on the Go Time podcast episode "Might Go actually be OOP?".  I also was able to attend an object oriented development in Go pre-conference workshop that Ronna led at Gophercon. 
 
-Path: `object/`
-Command: `cmd/object.go` 
+# Project
 
-Basic demonstration of working with objects in Go.
+This project utilizes the `Cobra` package to allow interaction with the concepts using easy to follow and modify CLI commands.
 
-```
-//create new object, no initialized values
-o1 := object.Object{}
+Each chapter in the POODR book is represented in this project as a Go package and each chapter is located in a separate folder.  Code examples from the POODR book are written in these packages as Go representations of the Ruby code used in the book.  Obviously Ruby and Go are very different programming languages so some creative freedom is taken in making these examples in Go.
 
-// create a new object, initialize values
-o2 := object.Object{
-	Field1: "value1", // notice we can only access the "public" methods or variables
-	//field2: "value2", // field2 is not accessible outside of the object package
-}
 
-// set values for object 1
-o1.Field1 = "value1"   // Field1 is directly accessible
-o1.SetField2("value2") // field2 is behind acessor methods
 
-// set values for object 2
-o2.SetField2("value2")
-
-log.Println("### Object1 (o1) ###")
-log.Printf("o1.Field1: %s", o1.Field1)
-log.Printf("o1.field2: %s", o1.GetField2())
-
-log.Println("### Object2 (o2) ###")
-log.Printf("o2.Field1: %s", o2.Field1)
-log.Printf("o2.field2: %s", o2.GetField2())
-```
