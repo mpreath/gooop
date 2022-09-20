@@ -1,7 +1,7 @@
 package cmd
 
 import (
-	"gooop/command"
+	"gooop/poodr/ch1"
 	"log"
 
 	"github.com/spf13/cobra"
@@ -12,19 +12,12 @@ func init() {
 }
 
 var commandCmd = &cobra.Command{
-	Use:   "command",
-	Short: "Demonstrates using commands in Go",
-	Long:  `Demonstrates using commands in Go`,
+	Use:   "ch1",
+	Short: "Demonstrates examples from chapter 1 in POODR",
+	Long:  `Demonstrates examples from chapter 1 in POODR`,
 	Run: func(cmd *cobra.Command, args []string) {
 
-		userCmd := command.CreateUserCommand{}
-		userCmd.Object = command.User{
-			Name: "Matt Reath",
-		}
-		userCmd.Execute()
-		if userCmd.Error != nil {
-			log.Fatal(userCmd.Error.Error())
-		}
-		log.Printf("Command %T Executed on %T", userCmd, userCmd.Object)
+		gear := ch1.Gear{}
+		log.Printf("%T\n", gear)
 	},
 }

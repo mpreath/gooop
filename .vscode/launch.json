@@ -10,47 +10,7 @@
             "request": "launch",
             "mode": "debug",
             "program": "main.go",
-            "args": ["object"]
-        },
-        {
-            "name": "Compose",
-            "type": "go",
-            "request": "launch",
-            "mode": "debug",
-            "program": "main.go",
-            "args": ["compose"]
-        },
-        {
-            "name": "Interface",
-            "type": "go",
-            "request": "launch",
-            "mode": "debug",
-            "program": "main.go",
-            "args": ["interface"]
-        },
-        {
-            "name": "Factory",
-            "type": "go",
-            "request": "launch",
-            "mode": "debug",
-            "program": "main.go",
-            "args": ["factory"]
-        },
-        {
-            "name": "Handler",
-            "type": "go",
-            "request": "launch",
-            "mode": "debug",
-            "program": "main.go",
-            "args": ["handler"]
-        },
-        {
-            "name": "Command",
-            "type": "go",
-            "request": "launch",
-            "mode": "debug",
-            "program": "main.go",
-            "args": ["command"]
+            "args": ["ch1"]
         },
     ]
 }
