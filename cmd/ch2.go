@@ -1,7 +1,7 @@
 package cmd
 
 import (
-	"gooop/poodr/ch1"
+	"gooop/poodr/ch2"
 	"log"
 
 	"github.com/spf13/cobra"
@@ -12,12 +12,12 @@ func init() {
 }
 
 var commandCmd = &cobra.Command{
-	Use:   "ch1",
-	Short: "Demonstrates examples from chapter 1 in POODR",
-	Long:  `Demonstrates examples from chapter 1 in POODR`,
+	Use:   "ch2",
+	Short: "Demonstrates examples from chapter 2 in POODR",
+	Long:  `Demonstrates examples from chapter 2 in POODR`,
 	Run: func(cmd *cobra.Command, args []string) {
 
-		gear := ch1.Gear{}
+		gear := ch2.Gear{}
 		log.Printf("%T\n", gear)
 	},
 }

@@ -1,3 +1,3 @@
-package ch1
+package ch2
 
 type Gear struct{}
