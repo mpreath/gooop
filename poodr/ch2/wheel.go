@@ -11,7 +11,7 @@ func NewWheel(rim float32, tire float32) *Wheel {
 	return &Wheel{rim: rim, tire: tire}
 }
 
-func (w *Wheel) GetRim() float32 {
+func (w *Wheel) Rim() float32 {
 	return w.rim
 }
 
@@ -19,7 +19,7 @@ func (w *Wheel) SetRim(rim float32) {
 	w.rim = rim
 }
 
-func (w *Wheel) GetTire() float32 {
+func (w *Wheel) Tire() float32 {
 	return w.tire
 }
 

@@ -10,7 +10,7 @@ func NewGear(chainring int, cog int, wheel *Wheel) *Gear {
 	return &Gear{chainring: chainring, cog: cog, wheel: wheel}
 }
 
-func (g *Gear) GetChainring() int {
+func (g *Gear) Chainring() int {
 	return g.chainring
 }
 
@@ -18,7 +18,7 @@ func (g *Gear) SetChainring(chainring int) {
 	g.chainring = chainring
 }
 
-func (g *Gear) GetCog() int {
+func (g *Gear) Cog() int {
 	return g.cog
 }
 
@@ -26,7 +26,7 @@ func (g *Gear) SetCog(cog int) {
 	g.cog = cog
 }
 
-func (g *Gear) GetWheel() *Wheel {
+func (g *Gear) Wheel() *Wheel {
 	return g.wheel
 }
 
