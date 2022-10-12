@@ -1,9 +1,17 @@
 package main
 
-import "gooop/pkg/poodr/ch2"
+import (
+	"fmt"
+	"gooop/pkg/poodr/ch2/gear"
+	"gooop/pkg/poodr/ch2/wheel"
+)
 
 func main() {
 
-	_ = ch2.Wheel{}
-	_ = ch2.Gear{}
+	w := wheel.New(26, 1.5)
+	fmt.Printf("Circumference: %.2f\n", w.Circumference())
+
+	fmt.Printf("Gear Inches: %.2f\n", gear.New(52, 11, w).GearInches())
+
+	fmt.Printf("Ratio: %.2f\n", gear.New(52, 11, nil).Ratio())
 }

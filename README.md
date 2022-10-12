@@ -8,16 +8,16 @@ Further inspiration for working on this project came from one of my favorite epi
 
 ## OOP/OOD in Go
 
-| Topic | POODR Chapter |
-|-------|---------------|
-|Single Responsibility|2|
-|Managing Dependencies|3|
-|Flexible Interfaces|4|
-|Duck Typing|5|
-|Inheritance|6|
-|Modules|7|
-|Composition|8|
-|Testing|9|
+| Topic                  | POODR Chapter |
+|------------------------|---------------|
+| Single Responsibility  | 2             |
+| Managing Dependencies  | 3             |
+| Flexible Interfaces    | 4             |
+| Duck Typing            | 5             |
+| Inheritance            | 6             |
+| Modules                | 7             |
+| Composition            | 8             |
+| Testing                | 9             |
 
 ## Single Responsibility
 
