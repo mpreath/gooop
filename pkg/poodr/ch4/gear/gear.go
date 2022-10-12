@@ -3,14 +3,14 @@ package gear
 type Gear struct {
 	chainring int
 	cog       int
-	wheel     Wheel
+	wheel     WheelInterface
 }
 
-type Wheel interface {
+type WheelInterface interface {
 	Diameter() float32
 }
 
-func New(chainring int, cog int, wheel Wheel) *Gear {
+func New(chainring int, cog int, wheel WheelInterface) *Gear {
 	return &Gear{
 		chainring: chainring,
 		cog:       cog,
@@ -34,11 +34,11 @@ func (g *Gear) SetCog(cog int) {
 	g.cog = cog
 }
 
-func (g *Gear) Wheel() Wheel {
+func (g *Gear) Wheel() WheelInterface {
 	return g.wheel
 }
 
-func (g *Gear) SetWheel(wheel Wheel) {
+func (g *Gear) SetWheel(wheel WheelInterface) {
 	g.wheel = wheel
 }
 
