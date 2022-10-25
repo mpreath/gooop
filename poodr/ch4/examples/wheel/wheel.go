@@ -1,7 +1,7 @@
 package wheel
 
 import (
-	"gooop/pkg/poodr/ch4/examples/gear"
+	"gooop/poodr/ch4/examples/gear"
 	"math"
 )
 

@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	"gooop/pkg/poodr/ch3/gear"
-	"gooop/pkg/poodr/ch3/wheel"
+	"gooop/poodr/ch3/gear"
+	"gooop/poodr/ch3/wheel"
 )
 
 func main() {

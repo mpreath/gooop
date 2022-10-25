@@ -2,11 +2,11 @@ package main
 
 import (
 	"fmt"
-	gear2 "gooop/pkg/poodr/ch4/examples/gear"
-	wheel2 "gooop/pkg/poodr/ch4/examples/wheel"
-	"gooop/pkg/poodr/ch4/gear"
-	"gooop/pkg/poodr/ch4/gearwrapper"
-	"gooop/pkg/poodr/ch4/wheel"
+	gear2 "gooop/poodr/ch4/examples/gear"
+	wheel2 "gooop/poodr/ch4/examples/wheel"
+	"gooop/poodr/ch4/gear"
+	"gooop/poodr/ch4/gearwrapper"
+	"gooop/poodr/ch4/wheel"
 )
 
 func main() {

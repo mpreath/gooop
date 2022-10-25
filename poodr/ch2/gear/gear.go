@@ -1,6 +1,8 @@
 package gear
 
-import "gooop/pkg/poodr/ch2/wheel"
+import (
+	"gooop/poodr/ch2/wheel"
+)
 
 type Gear struct {
 	chainring int

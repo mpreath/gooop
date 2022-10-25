@@ -1,17 +1,15 @@
 package main
 
 import (
-	"fmt"
-	"gooop/pkg/poodr/ch2/gear"
-	"gooop/pkg/poodr/ch2/wheel"
+	"gooop/poodr/ch2/listing2_1"
+	"gooop/poodr/ch2/listing2_2"
+	"gooop/poodr/ch2/listing2_3"
+	"gooop/poodr/ch2/listing2_5"
 )
 
 func main() {
-
-	w := wheel.New(26, 1.5)
-	fmt.Printf("Circumference: %.2f\n", w.Circumference())
-
-	fmt.Printf("Gear Inches: %.2f\n", gear.New(52, 11, w).GearInches())
-
-	fmt.Printf("Ratio: %.2f\n", gear.New(52, 11, nil).Ratio())
+	listing2_1.Run()
+	listing2_2.Run()
+	listing2_3.Run()
+	listing2_5.Run()
 }
