@@ -1,7 +1,7 @@
 package main
 
 type Wheel struct {
-	Rim, Tire float32
+	rim, tire float32
 }
 
 func NewWheel(rim, tire float32) Wheel {
@@ -9,7 +9,7 @@ func NewWheel(rim, tire float32) Wheel {
 }
 
 func (w Wheel) Diameter() float32 {
-	return w.Rim + (w.Tire * 2)
+	return w.rim + (w.tire * 2)
 }
 
 func (w Wheel) Circumference() float32 {
